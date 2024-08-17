@@ -1,7 +1,7 @@
 # ASRSB-Source-Code
 
 # Inspiration
-My dearest teacher who suggested this as a point of leverage for my role of QM in ASRSB, and it actually worked, so to kill two birds with one stone, I've decided to just make this
+My dearest teacher who suggested this as a point of leverage for my role of QM in ASRSB, and it actually worked, so to kill two birds with one stone, I've decided to just make this.
 
 # What it does
 Currently, it does a plethora of things for the average user, such as letting students apply for instrument loaning, reporting defects, applying for absence, and checking their records and the future of the band.
