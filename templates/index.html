@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>ASRSB Website</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+</head>
+
+<body>
+	<div class="top-header">
+		<img src="{{ url_for('static', filename='bandIcon.png') }}" alt="bandIcon" class="bandIcon">
+		<p>Welcome, {{ user_name }}!</p>
+	</div>
+	
+	<form class="flex" method="post">
+        <div class="slim-box">
+            <h1>Instrument</h1>
+            <button type="submit" class="button" name="action" value="loan_form">Apply for Loan</button><br>
+            <button type="submit" class="button" name="action" value="ret_instr">Return Instrument</button><br>
+            <button type="submit" class="button" name="action" value="rep_defct">Report Instrument Defect</button>
+        </div>
+        
+        <div class="slim-box">
+            <h1>Attendance</h1>
+            <button type="submit" class="button" name="action" value="abs_appl">Apply for Absenteeism</button><br>
+            <button type="submit" class="button" name="action" value="atd_check">Check Past Attendance</button><br>
+            <button type="submit" class="button" name="action" value="sched">Band Schedule</button>
+        </div>
+        
+        <div class="slim-box">
+            <h1>Others</h1>
+            <button type="submit" class="button" name="action" value="logout">Logout</button><br>
+        </div>
+    </form>
+			
+</body>
+
+</html>

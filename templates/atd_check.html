@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ASRSB Website</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+</head>
+
+<body>
+	<div class="flex">
+		<div class="content-box">
+			{% if user_attendance %}
+				<ul>
+				{% for event in user_attendance %}
+					{% if event[2] == 'present' %}
+						<li>You were present for {{ event[0] }} on {{ event[1] }}</li>	
+					{% elif event[2] == 'late' %}
+						<li>You were marked late for {{ event[0] }} on {{ event[1] }}</li>
+					{% else %}
+						<li>You were not present for {{ event[0] }} on {{ event[1] }} due to: {{ event[3] }}</li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			{% else %}
+				<p>You have yet to start your journey in ASRSB, or we have yet to finish updating!</p>
+			{% endif %}
+			
+			<p><a href="{{ url_for('main_page') }}">Back to Homepage</a><p>
+		</div>
+	</div>
+</body>
+
+</html>

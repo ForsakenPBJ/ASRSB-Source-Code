@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ASRSB Website</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+</head>
+
+<body>
+	<div class="flex">
+		<div class="content-box">
+			<h1>Upcoming Rehearsals/Events:</h1>
+				{% if events %}
+					<ul>
+					{% for event in events%}
+						<li>{{ event[0] }} is happening on {{ event[1] }}
+					{% endfor %}
+					</ul>
+				{% else %}
+					<p>No events! Go rest...</p>
+					<p>Just kidding, GO PRACTICE >:(</p>
+				{% endif %}
+			
+			<p><a href="{{ url_for('main_page') }}">Back to Homepage</a></p>
+		</div>
+	</div>
+</body>
+
+</html>

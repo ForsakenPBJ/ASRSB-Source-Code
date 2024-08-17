@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>ASRSB Account Registration</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+
+	<script>
+		function togglePasswordVisibility() {
+			var passwordFields = document.querySelectorAll(".password-input");
+			passwordFields.forEach(function (field) {
+				if (field.type === "password") {
+					field.type = "text";
+				} else {
+					field.type = "password";
+				}
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<div class="flex">
+		<div class="content-box">
+			<form action="/registration" method="POST">
+				<h1>Create New Account</h1>
+				<h2>Let's get you started!</h2>
+
+				<div class="password-box">
+					<input type="text" name="new_name" placeholder="Name (as per NRIC)" required>
+				</div>
+
+				<div class="input-box">
+					<input type="email" name="email" placeholder="Students Email (@students.edu.sg)" required>
+				</div>
+
+				<div class="password-box">
+					<input type="password" name="new_password" placeholder="Password (8-20 characters long)" id="newPassword" class="password-input" required>
+				</div>
+
+				<div class="password-box">
+					<input type="password" name="conf_password" placeholder="Confirm Password" id="confirmPassword" class="password-input" required>
+				</div>
+		
+				{% if warning %}
+					<ul class="warning">
+						{% for statement in warning %}
+							<li>{{ statement }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+
+				<div class="remember-forgot">
+					<label>
+						<input type="checkbox" onclick="togglePasswordVisibility()" style="float: left; margin-top: 2px;">Show Password
+					</label>
+				</div>
+
+				<br>
+
+				<button type="submit" class="button">Create</button>
+
+				<div class="register-link">
+					<p>Already have an account? <a href="{{ url_for('login_page') }}">Login Here</a></p>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

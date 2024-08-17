@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ASRSB Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+</head>
+
+<body>
+    <div class="flex">
+        {% if message %}
+            <script>
+                alert("{{ message }}");
+            </script>
+        {% endif %}
+        
+        <form class="slim-box" action="{{ url_for('rep_defct') }}" method="POST" enctype="multipart/form-data">
+            <h1>Defect Report</h1>
+            <label class="form-label">Serial Number: </label>
+            <select name="serial_num" id="serial_num" class="custom-select">
+                <option value="perc">Percussion</option>
+                {% for num in serial_nums %}
+                    <option value="{{ num }}">{{ num }}</option>
+                {% endfor %}
+            </select>
+            
+            <br><br>
+            <div class="input-box">
+                <textarea name="defect_description" placeholder="Describe Defect... (Percussion state instrument pls)"></textarea>
+            </div>
+            
+            <br><br>
+            <label for="fileUpload" style="display: block; width: 380px; height: 150px; border: 2px dashed #ccc; text-align: center; line-height: 200px;" required>
+                Click to upload a file
+            </label>
+            <input type="file" id="fileUpload" name="fileUpload" accept=".jpg, .jpeg" style="display: none;">
+            
+            <!-- This span will display the selected file name -->
+            <span id="file-name" style="display:block; margin-top:10px;"></span>
+            
+            <br>
+            <button type="submit" class="button" name="action" value="conf_save">Send Report</button>
+            <p><a href="{{ url_for('main_page') }}">Back to Homepage</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Get the file input and span elements
+        const fileUpload = document.getElementById('fileUpload');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        // Listen for changes to the file input
+        fileUpload.addEventListener('change', function() {
+            // Check if a file is selected and update the span with the file name
+            if (fileUpload.files.length > 0) {
+                fileNameDisplay.textContent = `Selected file: ${fileUpload.files[0].name}`;
+            } else {
+                fileNameDisplay.textContent = ""; // Clear if no file is selected
+            }
+        });
+    </script>
+</body>
+</html>

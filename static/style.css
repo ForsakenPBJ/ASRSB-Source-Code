@@ -1,0 +1,309 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background : url(/static/loginPageBG.JPG) no-repeat;
+  background-size: cover;
+  background-position: center;
+  max-width: 101%;
+  margin:0 auto;
+  color: white;
+}
+
+/* Basic Styling */
+button {
+  font-size: 15px;
+  font-family: 'Segoe UI';
+  font-weight: bold;
+}
+
+a {
+  font-size: 14px;
+  color: teal;
+  text-decoration: none;
+}
+
+a:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+/* Flex Container */
+.flex {
+  background: transparent;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slim Box Styling */
+.slim-box {
+  width: 25%;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255,255,255,.2);
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+  min-height: 350px;
+  text-align: center;
+}
+
+/* Content Box Styling */
+.content-box {
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255,255,255,.2);
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+  min-width: 500px;
+  min-height: 330px;
+}
+
+.content-box h1{
+  font-size: 36px;
+  text-align: center;
+  color: white;
+}
+
+.content-box h2{
+  font-size: 18px;
+  text-align: center;
+  color: white;
+}
+
+/* Input Box Styling */
+.content-box .input-box{
+  width: 92.5%;
+  height: 20px;
+  margin: 30px 0;
+}
+
+.password-box {
+  width: 92.5%;
+  height: 20px;
+  margin: 30px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  border: 2px solid teal;
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 7.5px 15px;
+}
+
+.input-box input:focus {
+  border: 3px solid orange;
+  outline: none;
+}
+
+.password-box input {
+  width: 100%;
+  height: 100%;
+  border: 2px solid teal;
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 7.5px 15px;
+}
+
+.password-box input:focus {
+  border: 3px solid orange;
+  outline: none;
+}
+
+/* Remember/Forgot Styling */
+.content-box .remember-forgot {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 15px;
+  margin: 5px;
+}
+
+/* Button Styling */
+.content-box .button,
+.slim-box .button {
+  width: 66%;
+  height: 30px;
+  border-radius: 10px;
+  background-color: teal;
+  border: none;
+  color: white;
+  margin: 0 auto;
+  display: block;
+}
+
+.content-box .button:hover,
+.slim-box .button:hover {
+  background-color: orange;
+}
+
+/* Register Link Styling */
+.content-box .register-link {
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  margin: -5px 0 5px;
+}
+
+/* Slim Box Button Styling */
+.slim-box .button {
+  width: 50%;
+  height: 50px;
+}
+
+/* Warning Styling */
+.warning {
+	color: red;
+}
+
+/* Top Header Styling */
+.top-header {
+  background-color: rgba(128, 128, 128, 0.5);
+  backdrop-filter: blur(10px);
+  color: black;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-header p {
+	margin-right: 200px;
+	color: white;
+	font-size: 20px;
+}
+
+/* Band Icon Styling */
+.bandIcon {
+  width: 75px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 80px; /* Adjust spacing as needed */
+}
+
+/* Custom Select Styling */
+.form-label {
+    font-size: 20px; /* Larger font size for the label */
+    color: white;
+	margin-left: 20px;
+    margin-right: 20px; /* Space between the label and the select box */
+	margin-top: 17px;
+    display: inline-block;
+    vertical-align: middle; /* Align label vertically with the select box */
+}
+
+.custom-select {
+	margin-top: 20px;
+    width: auto; /* Adjust width to fit content */
+    height: 40px; /* Adjust height as needed */
+    border: 2px solid teal;
+    border-radius: 30px;
+    font-size: 18px;
+    padding: 7.5px 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+    outline: none;
+    transition: border 0.3s ease, background-color 0.3s ease;
+    display: inline-block; /* Keep select box inline with label */
+    vertical-align: middle; /* Align select box vertically with the label */
+}
+
+.custom-select:focus {
+    border: 3px solid orange;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker on focus */
+}
+
+.custom-select option {
+    background-color: rgba(0, 0, 0, 0.8); /* Background for options */
+    color: white;
+    padding: 10px; /* Option padding */
+}
+
+/* Textarea Styling */
+.input-box textarea {
+  width: 90%;
+  height: auto;
+  border: 2px solid teal;
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 10px 15px;
+  resize: none; /* Prevents resizing by the user */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+}
+
+.input-box textarea:focus {
+  border: 3px solid orange;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.7); /* Darken on focus */
+}
+
+/* Date Input Styling */
+.input-box input[type="date"] {
+  width: 90%;
+  height: 100%;
+  border: 2px solid teal;
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 7.5px 15px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  appearance: none; /* Removes the default date picker icon */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+.input-box input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 15px;
+  color: white;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.input-box input[type="date"]:focus {
+  border: 3px solid orange;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.7); /* Darken on focus */
+}
+
+.input-box input[type="text"] {
+  width: 100%;
+  height: auto;
+  border: 2px solid teal;
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 7.5px 15px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  box-sizing: border-box; /* Ensures padding doesn't increase the overall width */
+}
+
+.input-box input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Lightens the placeholder text color */
+}
+
+.input-box input[type="text"]:focus {
+  outline: none; /* Removes default focus outline */
+  border-color: orange; /* Changes border color on focus */
+}

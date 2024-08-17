@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>ASRSB Login</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+
+	<script>
+		function togglePasswordVisibility() {
+			var passwordFields = document.querySelectorAll(".password-input");
+			passwordFields.forEach(function (field) {
+				if (field.type === "password") {
+					field.type = "text";
+				} else {
+					field.type = "password";
+				}
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<div class="flex">
+		<div class="content-box">
+			<form action="{{ url_for('login_page') }}" method="POST">
+				<h1>Login to Your Account</h1>
+
+				<div class="input-box">
+					<input type="email" name="email" placeholder="Students Email (@students.edu.sg)" required>
+				</div>
+
+				<div class="password-box">
+					<input type="password" name="password" placeholder="Password" class="password-input" required>
+				</div>
+
+				{% if warning %}
+					<ul class="warning">
+						{% for statement in warning %}
+							<li>{{ statement }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				
+				<div class="remember-forgot">
+					<label>
+						<input type="checkbox" onclick="togglePasswordVisibility()" style="float: left; margin-top: 2px;">Show Password
+					</label>
+				</div>
+
+				<br>
+
+				<button type="submit" class="button">Login</button>
+
+				<div class="register-link">
+					<p>Don't have an account? <a href="{{ url_for('reg_page') }}">Register Here</a></p>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

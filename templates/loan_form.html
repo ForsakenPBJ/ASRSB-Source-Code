@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ASRSB Website</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+</head>
+
+<body>
+	<div class="flex">
+		{% if success %}
+			<script>
+				alert("Loan request has been successfully received!");
+			</script>
+		{% endif %}
+		
+		<form class="slim-box" method="POST">
+			<h1>Instrument Loaning</h1>
+			
+			{% if avail_instr %}
+				<label class="form-label">Serial Number: </label>
+				<select name="serial_num" id="serial_num" class="custom-select" required>
+					{% for asset in avail_instr %}
+						<option value="{{ asset }}">{{ asset }}</option>
+					{% endfor %}
+				</select><br><br>
+				<button type="submit" class="button">Send Loan Request</button>
+			{% else %}
+				<label class="form-label">Instrument: </label>
+				<select name="instrument" id="instrument" class="custom-select" required>
+					<option value="">Select Instrument</option>
+					<option value="Flute" {% if request.form.get('instrument') == 'Flute' %}selected{% endif %}>Flute</option>
+					<option value="Oboe" {% if request.form.get('instrument') == 'Oboe' %}selected{% endif %}>Oboe</option>
+					<option value="Clarinet" {% if request.form.get('instrument') == 'Clarinet' %}selected{% endif %}>Clarinet</option>
+					<option value="Sax" {% if request.form.get('instrument') == 'Sax' %}selected{% endif %}>Saxophone</option>
+					<option value="Bassoon" {% if request.form.get('instrument') == 'Bassoon' %}selected{% endif %}>Bassoon</option>
+					<option value="Trumpet" {% if request.form.get('instrument') == 'Trumpet' %}selected{% endif %}>Trumpet</option>
+					<option value="Horn" {% if request.form.get('instrument') == 'Horn' %}selected{% endif %}>Horn</option>
+					<option value="Trombone" {% if request.form.get('instrument') == 'Trombone' %}selected{% endif %}>Trombone</option>
+					<option value="Euphonium" {% if request.form.get('instrument') == 'Euphonium' %}selected{% endif %}>Euphonium</option>
+					<option value="Tuba" {% if request.form.get('instrument') == 'Tuba' %}selected{% endif %}>Tuba</option>
+				</select><br>
+				<br>
+				<button type="submit" class="button">Next</button>
+			{% endif %}
+			
+			<p><a href="{{ url_for('main_page') }}">Back to Homepage</a></p>
+		</form>
+	</div>
+	
+	
+</body>
+
+</html>

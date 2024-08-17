@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ASRSB Website</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='bandIcon.png') }}">
+</head>
+
+<body>
+	<div class="flex">
+		{% if success %}
+			<script>
+				alert("Absence request has been successfully received!");
+			</script>
+		{% endif %}
+		
+		<form class="slim-box" method="POST">
+			<h1>Absence App</h1>
+
+			<div class="input-box">
+				<input name="absence_date" type="date">
+			</div>
+			
+			<br>
+			
+			<div class="input-box">
+				<input name="reason" type="text" placeholder="Reason for Absence">
+			</div>
+			
+			<br>
+
+			<br><br>
+			<button type="submit" class="button" name="action" value="conf_save">Send Absence request</button>
+			<p><a href="{{ url_for('main_page') }}">Back to Homepage</a><p>
+		</form>
+	</div>
+</body>
+
+</html>
